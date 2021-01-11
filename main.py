@@ -6,7 +6,6 @@ import random
 from keep_alive import keep_alive
 import time
 
-
 client = discord.Client()
 
 keyword = ["prison", "jail","prison food","prison mike"]
@@ -66,8 +65,6 @@ async def on_message(message):
        await message.channel.purge(limit=1)
        await message.channel.send("That's what she said ")
 
-    elif msg.lower().startswith('?help'):
-     await message.channel.send("```?micheal or ?mike -> Random quotes\n?why -> When   someone pisses you off\n?she -> For a big surprise\nGifs -> [cringe, kms, kill you, noo, vance, huh, white, broke]\n\"prison\", \"jail\",\"prison food\",\"prison mike\" -> Keywords for prison  mike quotes\n``` ```md\n#Nothing is case sensitive , keywords & Gifs dont need \"?\" ```")
     elif msg.lower().startswith('cringe'):
       await message.channel.purge(limit=1)
       await message.channel.send("https://tenor.com/view/shit-cringe-gif-9261764")
@@ -93,5 +90,16 @@ async def on_message(message):
      await message.channel.purge(limit=1)
      await message.channel.send("https://media.giphy.com/media/NbsN8ERSfcCys/giphy.gif")
 
+
+@client.event
+async def on_message(message):
+    if message.content.startswith('?help'):
+        embedVar = discord.Embed(title="Random Micheal quotes", description="?micheal or ?mike", color=0x00ffff)
+        embedVar.add_field(name="Famous lines", value="?why, ?she", inline=False)
+        embedVar.add_field(name="Prison mike keywords", value="prison, jail, prison food, prison mike", inline=False)
+        embedVar.add_field(name="Gifs keywords", value="ringe, kms, kill you, noo, vance, huh, white, broke", inline=False)
+        embedVar.add_field(name="----------------------------------",value="Nothing is case sensitive , keywords & Gifs dont need prefix",inline=True)
+        await message.channel.send(embed=embedVar)
 keep_alive()
 client.run(os.getenv('KeY'))
+
