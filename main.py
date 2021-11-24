@@ -6,6 +6,8 @@ import random
 from keep_alive import keep_alive
 import time
 
+#NIGGA
+
 
 client = discord.Client()
 
