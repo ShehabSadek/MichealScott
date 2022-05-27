@@ -46,17 +46,6 @@ async def on_message(message):
         quote = get_quote()
         await message.channel.send(quote)
 
-    elif msg.lower().startswith('?ammar') or msg.lower().startswith('?why'):
-        await message.channel.purge(limit=1)
-        await message.channel.send("Why are you the way that you are?")
-        time.sleep(1.5)
-        await message.channel.send(
-            "Honestly, every time I try to do something fun or exciting, you make it not that way"
-        )
-        time.sleep(2.5)
-        await message.channel.send(
-            " I hate so much about the things that you choose to be")
-
     elif any(word in msg for word in keyword):
         await message.channel.send(random.choice(starter_mike))
         await message.channel.send(random.choice(["https://tenor.com/view/michael-scott-prison-mike-kissy-prison-mike-kissy-gif-13582037","https://media.giphy.com/media/niC0LL8nmXnWp0d7Sn/giphy.gif"]))
